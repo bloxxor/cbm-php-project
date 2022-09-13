@@ -16,8 +16,7 @@
     <link rel="icon" href="/icon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="icon.png">
 
-    <link rel="stylesheet" href="css/normalize.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="dist/css/app.css">
 
     <link rel="manifest" href="site.webmanifest">
     <meta name="theme-color" content="#fafafa">
