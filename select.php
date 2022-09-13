@@ -1,12 +1,6 @@
 <?php
-require_once 'includes/header.php';
-?>
 
-    <div class="wrapper">
-
-
-<?php
-
+// @TODO: Maybe move to index
 include_once 'assets/dbconnect.php';
 
 $classifieds = db_connect('read');
@@ -19,12 +13,3 @@ foreach ($classifieds as $classified) {
     echo '</tr>';
 }
 echo '</table>';
-
-?>
-
-
-
-    </div>
-
-<?php
-require_once 'includes/footer.php';

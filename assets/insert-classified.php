@@ -17,7 +17,7 @@ VALUES (
 
     include_once 'dbconnect.php';
 
-    db_connect($insert_sql, 'insert', $title, $description);
+    db_connect('insert', $insert_sql, $title, $description);
 
 } else {
     echo 'Bitte füllen Sie alle Felder aus!';
