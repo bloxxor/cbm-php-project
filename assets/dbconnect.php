@@ -19,8 +19,6 @@ function db_connect($action, $sql = NULL, $description = NULL, $title = NULL): a
             'root'
         );
 
-        echo 'Connection Successful!';
-
         if ($action == 'insert') {
             // Execute Query
             $entries = $dbh->prepare($sql);
