@@ -1,11 +1,11 @@
 <?php
 
 /**
- * @param $sql
  * @param $action
- * @param $title
- * @param $description
- * @return void
+ * @param null $sql
+ * @param null $description
+ * @param null $title
+ * @return array
  */
 function db_connect($action, $sql = NULL, $description = NULL, $title = NULL): array
 {
@@ -14,7 +14,7 @@ function db_connect($action, $sql = NULL, $description = NULL, $title = NULL): a
 
         // Instantiate Database Connection
         $dbh = new PDO(
-            'mysql:dbname=dbname;host=localhost',
+            'mysql:dbname=dbname;host=localhost;charset=utf8mb4',
             'root',
             'root'
         );
@@ -33,23 +33,22 @@ function db_connect($action, $sql = NULL, $description = NULL, $title = NULL): a
             $return_values = $dbh->query($read_classifieds_query);
             $results = $return_values->fetchAll(PDO::FETCH_ASSOC);
 
-            // var_dump($results);
             $dbh = null;
             return $results;
         }
 
         if ( $action == 'delete') {
             $dbh->query($sql);
-            $dbh = null;
         }
 
         if ( $action == 'update') {
             $dbh->query($sql);
-            $dbh = null;
         }
 
         // Close Database Handle
         $dbh = null;
+
+        header("Location: /index.php");
 
     } catch (PDOException $e) {
         echo $e->getMessage();

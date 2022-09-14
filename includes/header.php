@@ -2,7 +2,7 @@
 <html class="no-js" lang="de">
 
 <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
     <title></title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">

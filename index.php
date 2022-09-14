@@ -31,8 +31,8 @@ require_once 'includes/navbar.php';
                 foreach ($classifieds as $classified) {
                     echo "<tr>";
                     echo '<td>' . $classified['id'] . '</td>';
+                    echo '<td>' . htmlspecialchars( $classified['title']) . '</td>';
                     echo '<td>' . $classified['description'] . '</td>';
-                    echo '<td>' . $classified['title'] . '</td>';
                     echo '</tr>';
                 }
                 echo '</table>';

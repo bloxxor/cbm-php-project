@@ -41,8 +41,7 @@ $classifieds = db_connect('read');
 
                     <div class="mb-3">
                         <label for="classified_title" class="form-label">Anzeigen-Titel</label>
-                        <textarea class="form-control" name="classified_title" id="classified_title"
-                                  rows="3"></textarea>
+                        <input type="text" class="form-control" name="classified_title" id="classified_title">
                     </div>
 
                     <div class="mb-3">
