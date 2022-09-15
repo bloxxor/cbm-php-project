@@ -1,5 +1,7 @@
 <?php
+// Page Title -> header-php
 $page_title = 'Title';
+// Menu Items ->navbar.php
 $home_page = 'index.php';
 $insert_page = 'insert.php';
 $update_page = 'update.php';
@@ -12,24 +14,27 @@ require_once 'includes/navbar.php';
 
     <div class="row">
         <div class="row">
-            <h2>Insert</h2>
+            <h2>Anzeige einstellen</h2>
         </div>
     </div>
 
     <div class="row">
         <div class="col">
 
-            <form method="post" action="assets/insert-classified.php">
+            <form class="needs-validation" method="post" action="assets/insert-classified.php" novalidate>
 
                 <div class="mb-3">
                     <label for="classified_title" class="form-label">Anzeigen-Titel</label>
-                    <input type="text" class="form-control" name="classified_title" id="classified_title" aria-describedby="title_help">
-                    <div id="title_help" class="form-text">Required.</div>
+                    <input type="text" class="form-control" name="classified_title" id="classified_title" aria-describedby="title_help" required>
+                    <div id="title_help" class="form-text">Pflichtfeld.</div>
+                    <div class="invalid-feedback">
+                        Bitte Titel eingeben.
+                    </div>
                 </div>
 
                 <div class="mb-3">
                     <label for="classified_description" class="form-label">Anzeigen-Beschreibung</label>
-                    <textarea class="form-control" name="classified_description" id="classified_description" rows="3"></textarea>
+                    <textarea class="form-control" name="classified_description" id="classified_description" rows="3" required></textarea>
                 </div>
 
                 <button class="btn btn-primary" type="submit">Absenden</button>

@@ -24,7 +24,7 @@ $classifieds = db_connect('read');
         <div class="row">
             <div class="col">
 
-                <form method="post" action="assets/update-classified.php">
+                <form class="needs-validation" method="post" action="assets/update-classified.php" novalidate>
 
                     <div class="mb-3">
 
@@ -41,13 +41,19 @@ $classifieds = db_connect('read');
 
                     <div class="mb-3">
                         <label for="classified_title" class="form-label">Anzeigen-Titel</label>
-                        <input type="text" class="form-control" name="classified_title" id="classified_title">
+                        <input type="text" class="form-control" name="classified_title" id="classified_title" required>
+                        <div class="invalid-feedback">
+                            Bitte einen Titel eingeben.
+                        </div>
                     </div>
 
                     <div class="mb-3">
                         <label for="classified_description" class="form-label">Anzeigen-Beschreibung</label>
                         <textarea class="form-control" name="classified_description" id="classified_description"
-                                  rows="3"></textarea>
+                                  rows="3" required></textarea>
+                        <div class="invalid-feedback">
+                            Bitte Beschreibung eingeben.
+                        </div>
                     </div>
 
                     <button class="btn btn-primary" type="submit">Absenden</button>
