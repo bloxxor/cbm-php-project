@@ -11,7 +11,6 @@ require_once 'includes/navbar.php';
     <div class="container">
         <div class="row">
             <div class="col">
-
                 <?php
 
                 include_once 'assets/dbconnect.php';
