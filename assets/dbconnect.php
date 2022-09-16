@@ -7,7 +7,7 @@ session_start();
  * @param null $title
  * @return array
  */
-function db_connect($action, $sql = NULL, $title = NULL, $description = NULL): array
+function db_connect($action, $sql = NULL, $title = NULL, $description = NULL, $id = NULL): array
 {
 
     try {
@@ -20,15 +20,27 @@ function db_connect($action, $sql = NULL, $title = NULL, $description = NULL): a
         );
 
         if ($action == 'insert') {
-            // @TODO: Aks if its the right way? Or is bindParam better here?
-            $dbh->query($sql);
-            // Execute Query
-//            $entries = $dbh->prepare($sql);
-//            $entries->bindParam(':title', $title);
-//            $entries->bindParam(':description', $description);
-//            $entries->execute();
+
+            $entries = $dbh->prepare('CALL insert_classified(:title, :description)');
+            $entries->bindParam(':title', $title, PDO::PARAM_STR);
+            $entries->bindParam(':description', $description, PDO::PARAM_STR);
+            $entries->execute();
+
             $_SESSION['success'] = true;
             $_SESSION['task'] = 'insert';
+        }
+
+        if ($action == 'update') {
+            // $dbh->query($sql);
+
+            $entries = $dbh->prepare('CALL update_classified(:title, :description, :id)');
+            $entries->bindParam(':title', $title, PDO::PARAM_STR);
+            $entries->bindParam(':description', $description, PDO::PARAM_STR);
+            $entries->bindParam(':id', $id, PDO::PARAM_STR);
+            $entries->execute();
+
+            $_SESSION['success'] = true;
+            $_SESSION['task'] = 'update';
         }
 
         if ($action == 'read') {
@@ -43,12 +55,6 @@ function db_connect($action, $sql = NULL, $title = NULL, $description = NULL): a
             $dbh->query($sql);
             $_SESSION['success'] = true;
             $_SESSION['task'] = 'delete';
-        }
-
-        if ($action == 'update') {
-            $dbh->query($sql);
-            $_SESSION['success'] = true;
-            $_SESSION['task'] = 'update';
         }
 
         // Close Database Handle

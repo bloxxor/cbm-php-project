@@ -11,4 +11,4 @@ SET @p1='$description';
 SET @p2='$id'; 
 CALL `update_classified`(@p0, @p1, @p2);";
 
-db_connect('update', $update_sql);
+db_connect('update', $update_sql = '', $title, $description, $id);

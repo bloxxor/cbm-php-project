@@ -15,12 +15,13 @@ VALUES (
         :description
         );";*/
 
-    $insert_sql = "SET @p0='$title'; 
-    SET @p1='$description'; 
-    CALL `insert_classified`(@p0, @p1);";
+//    $insert_sql = "SET @p0='$title';
+//    SET @p1='$description';
+//    CALL `insert_classified`(@p0, @p1);";
 
     include_once 'dbconnect.php';
 
-    db_connect('insert', $insert_sql);
+    $insert_sql = '';
+    db_connect('insert', $insert_sql, $title, $description);
 
 }
