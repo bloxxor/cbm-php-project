@@ -1,6 +1,6 @@
 <?php
 // Page Title -> header-php
-$page_title = 'Title';
+$page_title = 'CBM - INSERT Statement';
 // Menu Items ->navbar.php
 $home_page = 'index.php';
 $insert_page = 'insert.php';
@@ -21,7 +21,7 @@ require_once 'includes/navbar.php';
     <div class="row">
         <div class="col">
 
-            <form class="needs-validation" method="post" action="assets/insert-classified.php" novalidate>
+            <form class="needs-validation" method="post" action="assets/insert-classified.php" enctype="multipart/form-data" novalidate>
 
                 <div class="mb-3">
                     <label for="classified_title" class="form-label">Anzeigen-Titel</label>
@@ -37,7 +37,12 @@ require_once 'includes/navbar.php';
                     <textarea class="form-control" name="classified_description" id="classified_description" rows="3" required></textarea>
                 </div>
 
-                <button class="btn btn-primary" type="submit">Absenden</button>
+                <div class="mb-5">
+                    <label for="classified_image" class="form-label">Bild</label>
+                    <input type="file" class="form-control" name="classified_image" id="classified_image" required>
+                </div>
+
+                <button class="btn btn-primary btn-lg" type="submit">Absenden</button>
 
             </form>
 

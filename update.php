@@ -1,5 +1,5 @@
 <?php
-$page_title = 'Title';
+$page_title = 'CBM - UPDATE Statement';
 $home_page = 'index.php';
 $insert_page = 'insert.php';
 $update_page = 'update.php';
